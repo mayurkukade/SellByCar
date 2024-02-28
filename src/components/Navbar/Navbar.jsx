@@ -4,6 +4,9 @@ import AvtarModal from "./AvtarModal";
 import { useEffect, useRef, useState } from "react";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+
+
 const Navbar = () => {
   const lastScrollTop = useRef(0);
 
@@ -27,10 +30,19 @@ const Navbar = () => {
     );
   }, []);
   
+  const navigate = useNavigate()
   const token = Cookies.get('cookie')
+  let decoded
+  if (token) {
+     decoded = jwt_decode(token)
+  }
+  else{
+    return navigate("/signin")
+    
+  }
   console.log(token)
-const decoded = jwt_decode(token)
-console.log(decoded.roles.includes('ADMIN'))
+
+
 
 
   let roleNav;
@@ -202,7 +214,7 @@ console.log(decoded.roles.includes('ADMIN'))
                     </li> */}
                        <li>
                         {
-                          !user ? <Link to={"/signup"}>Sign Up</Link> :""
+                          !token ? <Link to={"/signup"}>Sign Up</Link> :""
                         }
                       
                     </li>
