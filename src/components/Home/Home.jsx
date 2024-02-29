@@ -30,7 +30,7 @@ const Home = () => {
 
   const lastScrollTop = useRef(0);
 
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);                                                                                
 
   useEffect(() => {
     window.addEventListener(
