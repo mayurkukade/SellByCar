@@ -20,9 +20,9 @@ import Home from "./components/Home/Home";
 import AddCarDetails from "./components/AddCar/AddCarDetails";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import CarCard from "./components/CarDetailsCard/CarDetails";
-import RequireAuth from "./features/RequireAuth";
+// import RequireAuth from "./features/RequireAuth";
 import AppLayout from "./components/appLayout/AppLayout";
-import { OnlyAdmin } from "./config/role";
+// import { OnlyAdmin } from "./config/role";
 import CantAccess from "./components/cantAccess/CantAccess";
 import AddDealer from "./components/Form/AddDealer";
 import Contact from "./components/Contact/Contact";
@@ -35,14 +35,15 @@ import Dealer from "./components/Admin/Dealer";
 import UpdateCarDetails from "./components/AddCar/UpdateCarDetails";
 import MainFooter from "./components/Footer/MainFooter";
 import TableCard from "./components/TableCard/TableCard";
-import useScrollTop from "./util/useScrollTop";
+// import useScrollTop from "./util/useScrollTop";
 import Navbar from "./components/Navbar/Navbar";
 import ContactDealer from "./components/Dealers/ContactDealer";
 import MyCarBooking from "./components/CarDetailsCard/MyCarBooking";
 import UserRequestList from "./components/Dealers/UserRequestList";
 import CarRequest from "./components/Dealers/CarRequest";
+import KnowYourCar from "./components/CarDetailsCard/KnowYourCar.jsx";
 
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
 // import Cloudnary from "./Dummy/Cloudnary";
@@ -65,38 +66,38 @@ const App = () => {
         <Route path="/carDetails/:id" element={<CarCard />} />
 
         <Route element={<AppLayout />}>
-    
           {/* PROTECTED ROUTE FOR ADMIN */}
           {/* <Route
             element={
               <RequireAuth allowedRoles={[...Object.values(OnlyAdmin)]} />
             }
           > */}
-            <Route element={<AdminPage />}>
-              <Route path="/dealersManegment" element={<Dealer />} />
-              <Route path="/dealersManegment/:id" element={<DealerDetails />} />
-              <Route path="/userrequest" element={<UserRequest />} />
-              <Route path="/adddealer" element={<AddDealer />} />
-              <Route
-                path="/editDealerdetails/:userid/:id"
-                element={<EditDealerProfile />}
-              />
+          <Route element={<AdminPage />}>
+            <Route path="/dealersManegment" element={<Dealer />} />
+            <Route path="/dealersManegment/:id" element={<DealerDetails />} />
+            <Route path="/userrequest" element={<UserRequest />} />
+            <Route path="/adddealer" element={<AddDealer />} />
+            <Route
+              path="/editDealerdetails/:userid/:id"
+              element={<EditDealerProfile />}
+            />
             {/* </Route> */}
           </Route>
 
           {/* PROTECTED ROUTE FOR DEALER */}
           <Route
-            // element={
-            //   <RequireAuth allowedRoles={[...Object.values(OnlyDealer)]} />
-            // }
+          // element={
+          //   <RequireAuth allowedRoles={[...Object.values(OnlyDealer)]} />
+          // }
           >
-          <Route path="/dealer" element={<DealersModel />} />
+            <Route path="/dealer" element={<DealersModel />} />
           </Route>
           <Route path="/adminrequest" element={<AdminRequest />} />
 
           <Route path="/contact" element={<Contact />} />
           <Route path="/adminbuyers" element={<AdminBuyers />} />
           <Route path="/addcardetails" element={<AddCarDetails />} />
+          <Route path="/knowyourcar" element={<KnowYourCar />} />
           <Route path="/updateCarDetails" element={<UpdateCarDetails />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/dealer/carDetails/:id" element={<CarCard />} />
@@ -109,7 +110,7 @@ const App = () => {
           <Route path="/carrequest" element={<CarRequest />} />
 
           <Route path="/contactdealer" element={<ContactDealer />} />
-          <Route path='/contactdealer' element={<ContactDealer />} />
+          <Route path="/contactdealer" element={<ContactDealer />} />
           <Route path="/mycarbooking" element={<MyCarBooking />} />
 
           <Route path="*" element={<NotFound />} />
@@ -118,7 +119,6 @@ const App = () => {
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/tablecard" element={<TableCard />} />
         <Route path="/paymentDetails" element={<PaymentDetails />} />
-
       </Routes>
       <MainFooter />
     </>
