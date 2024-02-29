@@ -190,7 +190,7 @@ const Navbar = () => {
               <div className="navbar navbar-default" role="navigation">
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
-                    <li className="dropdown active">
+                    <li className="dropdown active" >
                       <Link to="/">Home</Link>
                     </li>
                     <li>

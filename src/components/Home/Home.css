@@ -1,11 +1,12 @@
 .header {
   position: fixed;
+  background-color: black;
   top: 0;
   left: 0;
   translate: 0 -72px;
   width: 100%;
   height: 72px;
-  box-shadow: 0 10px 20px rgb(0 0 0 / 10%);
+  box-shadow: white;
   transition: 0.5s;
   z-index: 1000;
   

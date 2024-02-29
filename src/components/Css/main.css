@@ -590,6 +590,7 @@ h6 {
 .navbar-nav > li > a {
   font-weight: 600;
   padding: 10px 15px;
+  color: white !important;
   border-radius: 5px;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -607,6 +608,7 @@ h6 {
 .navbar-default .navbar-nav > .open > a:focus,
 .navbar-default .navbar-nav > .open > a:hover {
   background-color: #fff;
+  
 }
 .dropdown-menu {
   padding: 0;
@@ -617,7 +619,7 @@ h6 {
 }
 .dropdown-menu > li > a {
   font-weight: 600;
-  color: #555;
+  color: #fff;
   padding: 7px 15px;
   border-bottom: 1px solid #eee;
 }
@@ -1078,13 +1080,13 @@ a.wit-btn {
            == About css==
 *************************************************/
 .about-wrap {
-  background: #5dc302;
+  background: black;
+  height: 25rem;
 }
 .about-wrap .col-md-6 {
   padding: 0;
 }
 .about-wrap .about-image {
-  background: url(../../images/about-img.jpg) no-repeat left;
   background-size: cover;
   height: 580px;
 }
@@ -1118,19 +1120,18 @@ a.wit-btn {
 }
 .about-wrap ul li {
   margin-top: 15px;
-  color: #fff;
+  color: black;
   font-weight: 600;
   position: relative;
-  padding-left: 25px;
 }
-.about-wrap ul li:before {
+/* .about-wrap ul li:before {
   content: "\f00c";
   font-family: "FontAwesome";
   position: absolute;
   left: 0;
-}
+} */
 .about-wrap .aboutinfo {
-  max-width: 560px;
+  max-width: 1200px;
   padding: 70px 20px 30px 50px;
 }
 /************************************************
@@ -4067,6 +4068,38 @@ blockquote:after {
   background: #5dc302;
   color: #fff;
   text-decoration: none;
+}
+.text-overlay {
+  position: absolute;
+  font-size: 45px;
+  color: #fff;
+  font-weight:600;
+  top: 25%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+}
+.break-span {
+  display: block; /* Display as block-level element */
+  word-break: break-all; /* Allow line break at any point */
+}
+.my-button {
+	position: absolute;
+  font-size: 20px;
+  top: 40%;
+  left: 4%;
+	background-color: #5dc302 ;
+	border: 2px;
+	color: #fff;
+  font-weight: 600;
+	padding: 10px 50px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 8px;
 }
 /*Photo Streen*/
 .photo-steam {

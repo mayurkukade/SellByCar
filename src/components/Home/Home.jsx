@@ -86,16 +86,16 @@ const Home = () => {
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
                     <li className="dropdown active">
-                      <Link to="/">Home</Link>
+                      <Link to="/">Home</Link>             
                     </li>
                     <li>
-                      <Link to="/carlist"> Buy Cars </Link>
+                      <Link to="/carlist"> Buy Cars </Link>   
                     </li>
                     <li>
-                      <Link to="/Contact">Contact Us</Link>
+                      <Link to="/Contact">Contact Us</Link>    
                     </li>
 
-                    {user.includes("ADMIN") ? (
+                    {user.includes("ADMIN") ? (                 
                       <li>
                         <Link to="/adddealer">
                           <button>Add Dealer</button>
@@ -156,50 +156,34 @@ const Home = () => {
         </div>
       </div>
 
-      <div
-        className="searchwrap"
-        style={{ border: "2px solid white", backgroundColor: "white" }}
-      >
-        <div className="container">
-          {/* <img src="" alt="Image" className="image-in-heading" />   */}
+      <div style={{paddingBottom : "20px", paddingTop: "35px"}}>
+      <div class="image-container">
+        <img
+            src="images/finalcar.jpg"
+              style={{
+                width:  "500%",
+                height: "598px",
+         }}/>
+            <div class="text-overlay">
+            
 
-          <h3
-            className="heading-animation "
-            style={{
-              color: "#5dc302",
-              transition: "transform 0.3s",
-              fontSize: "60px",
-            }}
-            onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-            onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-            onTouchStart={(e) => (e.target.style.transform = "scale(1.1)")}
-            onTouchEnd={(e) => (e.target.style.transform = "scale(1)")}
-          >
-            Buy Cars with Ease!
-          </h3>
-        </div>
+
+
+               <p>"Unlock Your Journey : <span className="break-span" style={{paddingTop:"30px"}}> Find Your Perfect Ride Today ! "</span> </p>
+            </div>
+            <button class="my-button">View All</button>
+           
+
+            
+          
+      </div>
       </div>
 
       <HomeCarousel />
-      <div className="about-wrap">
-        <div className="col-md-6">
-          <div className="about-image">
-            <img
-              src={bghome}
-              alt="About"
-              style={{
-                width: "500%",
-                height: "598px",
-                maxWidth: "100%",
-                overflow: "hidden",
-                transition: "transform 0.5s",
-              }}
-              className="zoomable-image"
-            />
-          </div>
-        </div>
-        <div
-          className="col-md-6"
+      <div style={{paddingTop : "20px"}}>
+      <div className="about-wrap" >
+        
+        <div 
           style={{
             display: "flex",
             justifyContent: "center",
@@ -211,39 +195,64 @@ const Home = () => {
             <div className="title">
               {/* <span>World&apos;s Leading Used Cars</span> */}
               <h1>
-                <span>Welcome to</span> Auto Car
+                <span>Why</span> AutoCar?
               </h1>
             </div>
-            <p style={{ fontSize: "16px" }}>
-              At &quot;Auto Car&quot;, we are passionate about driving the
-              digital transformation of enterprises within the automotive
-              industry. Our store-without-walls concept revolutionizes car
-              selling, making it efficient, convenient, and customer-centric.
-              Join us on this exciting journey as we reshape the way vehicles
-              are bought and sold, one digital transaction at a time. Ready to
-              experience the future of car selling? Sign up on our platform
-              today and embark on a seamless journey towards digitizing your
-              automotive sales process.
-            </p>
-            <ul>
-              <li>Revolutionize your car buying experience with ease!</li>
-              <li>
-                Access to a wide range of cars and potential buyers/sellers.
-              </li>
-              <li>
-                Sellers can create detailed listings for their cars, including
-                high-resolution images, specifications, and pricing information.
-              </li>
-              <li>
-                By eliminating the need for physical showrooms and extensive
-                paperwork, our platform saves valuable time and resources for
-                both buyers and sellers.
-              </li>
+            
+            <ul style={{display:"flex",gap:"20px", justifyContent:"center", height:"150px"}}>
+              
+            <Box
+
+                  bg="white"              // Set background color to white
+                  boxShadow="md"          // Add a shadow for depth
+                  borderRadius="md"       // Add border radius for rounded corners
+                  p={4}                   // Add padding to create space inside the card
+            >
+                  <li>
+                    Revolutionize your car buying experience with ease!
+                  </li>
+            </Box>
+            <Box
+                  bg="white"              // Set background color to white
+                  boxShadow="md"          // Add a shadow for depth
+                  borderRadius="md"       // Add border radius for rounded corners
+                  p={4}                   // Add padding to create space inside the card
+            >
+                  <li>
+                    Access to a wide range of cars and potential buyers/sellers.
+                  </li>
+            </Box>
+            <Box
+                  bg="white"              // Set background color to white
+                  boxShadow="md"          // Add a shadow for depth
+                  borderRadius="md"       // Add border radius for rounded corners
+                  p={4}                   // Add padding to create space inside the card
+            >
+                  <li>
+                    Sellers can create detailed listings for their cars, including
+                    high-resolution images, specifications, and pricing information.
+                  </li> 
+            </Box>  
+            <Box
+                  bg="white"              // Set background color to white
+                  boxShadow="md"          // Add a shadow for depth
+                  borderRadius="md"       // Add border radius for rounded corners
+                  p={4}                   // Add padding to create space inside the card
+            >
+                  <li>
+                    By eliminating the need for physical showrooms and extensive
+                    paperwork, our platform saves valuable time and resources for
+                    both buyers and sellers.
+                  </li> 
+            </Box> 
+                  
+              
               {/* <li>Duis non massa id nisl imperdiet iaculis.</li> */}
             </ul>
           </div>
         </div>
         <div className="clearfix"></div>
+      </div>
       </div>
 
       {/* <Car Logos> */}
