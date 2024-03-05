@@ -21,6 +21,7 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
+import CarDetail1 from "../UI/CarDetails";
 const CarDetails = () => {
   const userInfo = useSelector((state) => state.auth.userInfo);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -105,6 +106,7 @@ const CarDetails = () => {
                             })}
                           </div>
                         </div>
+                        
                         <h3>Car Features</h3>
                         <ul className="row carfeature">
                           {data?.object.acFeature && (
