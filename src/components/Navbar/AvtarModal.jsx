@@ -1,5 +1,5 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Button } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import {
   Menu,
   MenuButton,
@@ -36,6 +36,7 @@ console.log(decoded.roles.includes('ADMIN'))
 
   return (
     <Box className="card">
+    <Flex>
       <Avatar size={'sm'} marginRight={'0.3rem'} marginTop={'0.1rem'} name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
       <Menu bg="white">
         <MenuButton
@@ -62,6 +63,7 @@ console.log(decoded.roles.includes('ADMIN'))
           <MenuItem style={{textDecoration:"none"}} _hover={{ bg: '#5DC302' }}    onClick={logoutHandler}>Logout</MenuItem>
         </MenuList>
       </Menu>
+      </Flex>
     </Box>
   );
 };

@@ -23,10 +23,24 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 import Cookies from "js-cookie";
+import jwtDecode from "jwt-decode";
 
 const Home = () => {
-  const username = localStorage.getItem("userInfo");
-  const user = JSON.parse(username)?.roles || "";
+  const token = Cookies.get('cookie')
+ 
+  let jwt_Decode
+  let user
+  if(token){
+    console.log(true)
+   jwt_Decode = jwtDecode(token)
+   user = jwt_Decode?.roles[0] 
+  }else{
+    jwt_Decode = 'undefined'
+    user = 'undefined'
+  }
+
+  
+  // const username = localStorage.getItem("userInfo");
 
   const lastScrollTop = useRef(0);
 
@@ -58,8 +72,8 @@ const Home = () => {
         // style={{ position: "sticky", top: "0", zIndex: "1000" }}
       >
         <div className="container">
-          <div className="row">
-            <div className="col-md-2 col-sm-3 col-xs-12">
+          <div className="row ">
+            <div className="col-md-2 col-sm-3 col-xs-12 "  >
               <Link className="logo" to="/">
                 <img src="../../../images/logo.png" alt="logo" />
               </Link>
@@ -81,8 +95,8 @@ const Home = () => {
 
               <div className="clearfix"></div>
             </div>
-            <div className="col-md-10 col-sm-12 col-xs-12">
-              <div className="navbar navbar-default" role="navigation">
+            <div className="col-md-10 col-sm-12 col-xs-12 d-flex justify-content-end ">
+              <div className="navbar navbar-expand-lg" role="navigation">
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
                     <li className="dropdown active">
@@ -126,7 +140,7 @@ const Home = () => {
                       ""
                     )}
 
-                    {username ? (
+                    {token ? (
                       <>
                         {/* <li>
                           <Link to="/carlist"> My Booking </Link>
@@ -148,6 +162,7 @@ const Home = () => {
 
                       <li className="postad"></li> */}
                   </ul>
+                  
                 </div>
                 {/* <div className="clearfix"></div> */}
               </div>
