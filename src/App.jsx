@@ -44,12 +44,15 @@ import CarRequest from "./components/Dealers/CarRequest";
 import KnowYourCar from "./components/CarDetailsCard/KnowYourCar.jsx";
 
 // import Cookies from "js-cookie";
+
+// import Cookies from "js-cookie";
+import CarDetails from "./components/UI/CarDetails.jsx";
+
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
 // import Cloudnary from "./Dummy/Cloudnary";
 // import Cloudnary from "./Dummy/Cloudnary";
 
 const App = () => {
- 
   // useScrollTop();
   return (
     <>
@@ -119,6 +122,8 @@ const App = () => {
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/tablecard" element={<TableCard />} />
         <Route path="/paymentDetails" element={<PaymentDetails />} />
+
+        <Route path="/carDetails" element={<CarDetails />} />
       </Routes>
       <MainFooter />
     </>
