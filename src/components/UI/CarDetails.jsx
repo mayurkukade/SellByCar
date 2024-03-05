@@ -7,6 +7,7 @@ import { RxHome } from "react-icons/rx";
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { RxFileText } from "react-icons/rx";
 import { FaWhatsapp } from 'react-icons/fa';
+import KnowYourCar from '../CarDetailsCard/KnowYourCar';
 
 const CarDetail1 = () => {
   const [carList] = useState([
@@ -42,8 +43,8 @@ const CarDetail1 = () => {
 
   const ChooseCarColor = () => {
     return (
-      <Container maxW="container.xl" >
-        <Card maxW='md' mb={5}>
+      <Container maxW="container.xl">
+        <Card maxW="md" mb={5}>
           {/* <CardBody> */}
           <Box className="row">
             <Box className="col-7">
@@ -69,18 +70,20 @@ const CarDetail1 = () => {
     <Container maxW="container.lg" mt={20}>
       {/* <Heading as="h1" textAlign="center">Car Detail</Heading> */}
       <Flex justifyContent="space-between">
-        <Card maxW='md' mb={5}>
+        <Card maxW="md" mb={5}>
           <Box flex="1">
             <ChooseCarColor />
+            <KnowYourCar />
           </Box>
-          
         </Card>
 
         {/* Second Card */}
-        <Card maxW='md' mb={5}>
+        <Card maxW="md" mb={5} position="">
           <CardBody>
             <Box>
-              <Text fontSize={30} fontWeight='bold'>2013 Honda Civics</Text>
+              <Text fontSize={30} fontWeight="bold">
+                2013 Honda Civics
+              </Text>
               <Box mt={5}>
                 <Text fontSize={20}>AMBITION 1.6 MPI MTManual</Text>
               </Box>
@@ -128,26 +131,40 @@ const CarDetail1 = () => {
             <Divider />
           </Box>
           <Flex justifyContent="space-between" m={6} mt={1}>
-            <Text color='orange' fontWeight='bold' fontSize='20'>₹7,979/month</Text>
-            <Text color='black' fontWeight='bold' fontSize='20'>₹3.03 Lakh</Text>
+            <Text color="orange" fontWeight="bold" fontSize="20">
+              ₹7,979/month
+            </Text>
+            <Text color="black" fontWeight="bold" fontSize="20">
+              ₹3.03 Lakh
+            </Text>
           </Flex>
-          <Text fontWeight='bold' m={6} mt={1}>On Zero down payment</Text>
+          <Text fontWeight="bold" m={6} mt={1}>
+            On Zero down payment
+          </Text>
           <Flex justifyContent="space-between" m={5} mt={-5}>
-            <Button rightIcon={<ArrowForwardIcon />} color='blue' variant='unstyled'>
+            <Button
+              rightIcon={<ArrowForwardIcon />}
+              color="blue"
+              variant="unstyled"
+            >
               CHECK ELIGIBILITY
             </Button>
-            <Button rightIcon={<ArrowForwardIcon />} color='blue' variant='unstyled'>
+            <Button
+              rightIcon={<ArrowForwardIcon />}
+              color="blue"
+              variant="unstyled"
+            >
               UNDERSTAND PRICE
             </Button>
           </Flex>
-          <Button m={6} mt={-4} variant='solid' colorScheme='orange'>
+          <Button m={6} mt={-4} variant="solid" colorScheme="orange">
             BOOK FREE TEST DRIVE
           </Button>
         </Card>
         {/* Second card End */}
       </Flex>
     </Container>
-  )
+  );
 };
 
 export default CarDetail1;
