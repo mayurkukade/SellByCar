@@ -1,27 +1,12 @@
 /* eslint-disable react/prop-types */
 import SubNav from "../Navbar/SubNav.jsx";
 import { useState, useEffect } from "react";
-import CarListCard from "./CarListCard.jsx";
-import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
-import { Card,CardBody,CardFooter } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/react";
-import { baseUrl } from "../../api/apiSlice.js";
-import {
-  useGetAllCarsQuery,
-  // useFilterCarQueryQuery,
-} from "../../api/carApiSlice.js";
+import { useGetAllCarsQuery } from "../../api/carApiSlice.js";
 import CardShimmer from "./CardShimmer.jsx";
+import InfiniteScroll from "react-infinite-scroll-component";
+import "./grid.css";
+import CarList1 from "./CarList1.jsx";
 
-import { calcLength } from "framer-motion";
-import { Image } from '@chakra-ui/react'
-import { Stack } from '@chakra-ui/react'
-import { Divider } from '@chakra-ui/react'
-import { Heading } from '@chakra-ui/react'
-import { Text } from '@chakra-ui/react'
-import { ButtonGroup } from '@chakra-ui/react'
-
-import { Link } from 'react-router-dom'
-import './grid.css'
 const CarList = () => {
   const cardCount = 10;
   // use State for input fields
@@ -36,14 +21,6 @@ const CarList = () => {
     minPrice: "",
   });
 
-  // useState for pagination
-  const [currentPage, setCurrentPage] = useState(0);
-  const [filterPage, setFilterPage] = useState(0);
-
-  // for fetching all cars
-  const { data: v, isLoading, isError } = useGetAllCarsQuery(currentPage);
-  console.log(v)
-  const [responseData, setResponseData] = useState([]);
   const onChangeFormHandler = (e) => {
     const { name, value } = e.target;
     const updatedValue =
@@ -57,49 +34,46 @@ const CarList = () => {
 
     setInputFilter((previousValue) => ({
       ...previousValue,
-
       [name]: updatedValue,
     }));
   };
 
+  // Display the value of 'year' in the console
+  console.log(inputFilter.year);
+
   // form submit handler
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-    fetchData();
-  };
+  // const onSubmitHandler = (e) => {
+  //   e.preventDefault();
+  //   fetchData();
+  // };
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const [hasMore, setHasMore] = useState(true);
+  const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { data } = useGetAllCarsQuery(currentPage);
 
   useEffect(() => {
-    if (v) {
-      setResponseData(v?.list);
+    if (data && data.list && data.list.length > 0) {
+      // Update items with the new data for the current page
+      setItems((prevItems) => [...prevItems, ...data.list]);
+      setIsLoading(false); // Set loading to false after updating the items
     }
-  }, [v]);
+  }, [data]);
 
-  // Page handler
+  console.log("Items data", items);
 
-  const goToPreviousPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
-  };
-
-  const goToNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
-
-  // using fetch
-
-  const fetchData = async () => {
-    try {
-      console.log(`baseurl is ${baseUrl}`);
-      const queryParams = new URLSearchParams(inputFilter).toString();
-      const url = `${baseUrl}/cars/mainFilter/${filterPage}?${queryParams}`;
-      console.log(url);
-      const response = await fetch(url);
-      const data = await response.json();
-      setResponseData(data?.list);
-    } catch (error) {
-      console.error("Error fetching data:", error);
+  const handleFetchMore = () => {
+    // Increment the page number and fetch more data with RTK Query
+    if (!isLoading && hasMore) {
+      // Introduce a delay using setTimeout before updating the page and fetching more data
+      setTimeout(() => {
+        setCurrentPage((prevPage) => prevPage + 1);
+        setHasMore(false);
+      }, 1500); // Adjust the delay time (in milliseconds) as needed
     }
   };
-
   // clear filter
 
   const clearFilters = () => {
@@ -123,7 +97,7 @@ const CarList = () => {
   for (let year = startYear; year <= currentYear; year++) {
     years.push(year);
   }
-console.log(responseData)
+
   return (
     <>
       <div className="sticky">
@@ -134,7 +108,8 @@ console.log(responseData)
           <div className="row">
             <div className="col-md-3 col-sm-5">
               {/* <Container > */}
-              <form onSubmit={onSubmitHandler}>
+              {/* SideBar start */}
+              <form>
                 <div
                   className="sidebar"
                   style={{ height: "var(--sidebar-height)" }}
@@ -169,30 +144,22 @@ console.log(responseData)
                   </div>
                   <div className="widget">
                     <h4 className="widget-title">Area</h4>
-                    {/* <input
-                      type="text"
-                      name="area"
-                      value={inputFilter.area}
-                      className="form-control"
-                      placeholder="Area"
-                      onChange={onChangeFormHandler}
-                    /> */}
                     <select
                       className="form-control"
                       name="area"
                       value={inputFilter.area}
                       onChange={onChangeFormHandler}
                     >
-                      <option>Select Area</option>
-                      <option>Wagholi</option>
-                      <option>Kharadi</option>
-                      <option>Chandannagar</option>
-                      <option>Hadapsar</option>
-                      <option>Vimannagar</option>
-                      <option>Pimpri</option>
-                      <option>Chinchwad</option>
-                      <option>Dighi</option>
-                      <option>Khadki</option>
+                      <option value="">Select Area</option>
+                      <option value="Wagholi">Wagholi</option>
+                      <option value="Kharadi">Kharadi</option>
+                      <option value="Chandannagar">Chandannagar</option>
+                      <option value="Hadapsar">Hadapsar</option>
+                      <option value="Vimannagar">Vimannagar</option>
+                      <option value="Pimpri">Pimpri</option>
+                      <option value="Chinchwad">Chinchwad</option>
+                      <option value="Dighi">Dighi</option>
+                      <option value="Khadki">Khadki</option>
                     </select>
                   </div>
                   <div className="widget">
@@ -219,14 +186,14 @@ console.log(responseData)
                       value={inputFilter.brand}
                       onChange={onChangeFormHandler}
                     >
-                      <option>Select Brand</option>
-                      <option>Tata</option>
-                      <option>Honda</option>
-                      <option>Toyota</option>
-                      <option>Suzuki</option>
-                      <option>Mahindra</option>
-                      <option>Hyundai</option>
-                      <option>Kia</option>
+                      <option value="">Select Brand</option>
+                      <option value="Tata">Tata</option>
+                      <option value="Honda">Honda</option>
+                      <option value="Toyota">Toyota</option>
+                      <option value="Suzuki">Suzuki</option>
+                      <option value="Mahindra">Mahindra</option>
+                      <option value="Hyundai">Hyundai</option>
+                      <option value="Kia">Kia</option>
                     </select>
                   </div>
 
@@ -250,10 +217,10 @@ console.log(responseData)
                       value={inputFilter.fuelType}
                       onChange={onChangeFormHandler}
                     >
-                      <option>Fuel Type</option>
-                      <option>Petrol</option>
-                      <option>Diesel</option>
-                      <option>Electric</option>
+                      <option value="">Fuel Type</option>
+                      <option value="Petrol">Petrol</option>
+                      <option value="Diesel">Diesel</option>
+                      <option value="Electric">Electric</option>
                     </select>
                   </div>
 
@@ -265,14 +232,14 @@ console.log(responseData)
                       value={inputFilter.transmission}
                       onChange={onChangeFormHandler}
                     >
-                      <option>Transmission</option>
-                      <option>Automatic</option>
-                      <option>Manual</option>
+                      <option value="">Transmission</option>
+                      <option value="Automatic">Automatic</option>
+                      <option value="Manual">Manual</option>
                     </select>
                   </div>
 
                   <div className="searchnt">
-                    <button className="btn" onClick={onSubmitHandler}>
+                    <button className="btn" >
                       <i className="fa fa-search" aria-hidden="true"></i> Update
                       Results
                     </button>
@@ -287,6 +254,7 @@ console.log(responseData)
                   </div>
                 </div>
               </form>
+              {/* SideBar end */}
             </div>
 
             {isLoading ? (
@@ -296,97 +264,73 @@ console.log(responseData)
                 ))}
               </>
             ) : (
-              <div className="col-md-9 col-sm-7">
-                <div
-                  className="card-container-wrapper"
-                  style={{ height: "880px", overflowY: "auto",display:"flex",padding:"5px" }}
-                >
-                  <div className="parent" >
-                    {/* <div className="card-container" ref={cardContainerRef}> */}
+              <div style={{ display: "flex", width: "54rem" }}>
+                <div className="">
+                  {/* <div className="card-container" ref={cardContainerRef}> */}
 
-                    {responseData === null ? (
-                      <h1
+                  {items === null ? (
+                    <h1
+                      style={{
+                        display: "flex",
+
+                        alignItems: "center",
+
+                        justifyContent: "center",
+
+                        minHeight: "70vh",
+                      }}
+                    >
+                      No car Found
+                    </h1>
+                  ) : items.length === 0 ? (
+                    <h3
+                      style={{
+                        display: "flex",
+
+                        justifyContent: "center",
+
+                        alignItems: "center",
+
+                        height: "80vh",
+                      }}
+                    >
+                      Something Went Wrong Can&apos;t fetch Car list
+                    </h3>
+                  ) : (
+                    <InfiniteScroll
+                      dataLength={items.length}
+                      next={handleFetchMore}
+                      hasMore={hasMore}
+                      loader={<h4>Loading...</h4>}
+                      endMessage={
+                        <p style={{ textAlign: "center" }}>
+                          <b>You are at last</b>
+                        </p>
+                      }
+                    >
+                      <div
                         style={{
+                          maxWidth: "80rem",
                           display: "flex",
-
-                          alignItems: "center",
-
-                          justifyContent: "center",
-
-                          minHeight: "70vh",
+                          flexWrap: "wrap",
                         }}
                       >
-                        No car Found
-                      </h1>
-                    ) : responseData.length === 0 ? (
-                      <h3
-                        style={{
-                          display: "flex",
-
-                          justifyContent: "center",
-
-                          alignItems: "center",
-
-                          height: "80vh",
-                        }}
-                      >
-                        Something Went Wrong Can&apos;t fetch Car list
-                      </h3>
-                    ) : (
-                      responseData.map((carDetails, index) => {
-                      
-                        return(
-                          <div key={index} >
-                          
-                          <Card maxW='sm' style={{marginBottom:"15px"}} >
-      <CardBody>
-        <Image
-          src='https://imgd.aeplcdn.com/1200x900/n/cw/ec/40087/thar-exterior-right-front-three-quarter-35.jpeg?isig=0&q=80'
-          alt='Green double couch with wooden legs'
-          borderRadius='lg'
-        />
-        <Stack mt='6' spacing='3'>
-          <Heading size='md'>{carDetails.year} {carDetails.brand} {carDetails.model}</Heading>
-          <Text>
-            {carDetails.kmDriven} {carDetails.fuelType} {carDetails.transmission}
-          </Text>
-          <Text color='blue.600' fontSize='lg'>
-            ₹{carDetails.price}
-          </Text>
-          <Text color='blue.600' fontSize='lg'>
-            EMIs from ₹2000/month
-          </Text>
-          <Text color='blue.600' fontSize='lg'>
-            Free Test Drive {carDetails.area}
-          </Text>
-        </Stack>
-      </CardBody>
-      <Divider />
-      <CardFooter>
-        <ButtonGroup spacing='2'>
-          <Button color={'green.400'} bg={'green.500'} textColor={'white'} className="listbtn">
-            <Link to={`/carDetails/${carDetails.carId}`}>
-              View Details{" "}
-              <i
-                className="fa fa-arrow-circle-right"
-                aria-hidden="true"
-              ></i>
-            </Link>
-          </Button>
-        </ButtonGroup>
-      </CardFooter>
-    </Card>
-                        
+                        {items.map((carDetails, index) => (
+                          <div
+                            key={index}
+                            style={{ flex: "0 0 33.33%", padding: "10px" }}
+                          >
+                            <CarList1 CarDetails={carDetails} index={index} area ={inputFilter.area} />
                           </div>
-                        ) 
-                      })
-                    )}
-                  </div>
+                        ))}
+                      </div>
+                    </InfiniteScroll>
+                  )}
                 </div>
               </div>
             )}
 
-            <div className="pagiWrap">
+            {/* <div className="pagiWrap">
               <div className="row">
                 <div className="col-md-4 col-sm-4"></div>
 
@@ -410,7 +354,7 @@ console.log(responseData)
                     </li>
 
                     <li style={{ marginLeft: "20px" }}>
-                      {/* {!isError && ( */}
+                     
                       <Button
                         onClick={goToNextPage}
                         colorScheme="teal"
@@ -423,12 +367,12 @@ console.log(responseData)
                           Next Page <ArrowRightIcon />
                         </span>
                       </Button>
-                      {/* )} */}
+                    
                     </li>
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

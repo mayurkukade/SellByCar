@@ -41,6 +41,9 @@ import ContactDealer from "./components/Dealers/ContactDealer";
 import MyCarBooking from "./components/CarDetailsCard/MyCarBooking";
 import UserRequestList from "./components/Dealers/UserRequestList";
 import CarRequest from "./components/Dealers/CarRequest";
+import Vehicalissue from "./components/Mentor/Vehicalissue.jsx";
+import MultipleimgUplod from "./components/Mentor/MultipleimgUplod.jsx";
+import Compressionimage from "./components/Mentor/Compressionimage.jsx";
 
 import Cookies from "js-cookie";
 // import CardDetailsShimmer from "./components/CarDetailsCard/CardDetailsShimmer";
@@ -118,6 +121,10 @@ const App = () => {
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/tablecard" element={<TableCard />} />
         <Route path="/paymentDetails" element={<PaymentDetails />} />
+
+        <Route path="/vehicalissue" element={<Vehicalissue />} />
+        <Route path="/multipleimage" element={<MultipleimgUplod />} />
+        <Route path="/compressimg" element={<Compressionimage />} />
 
       </Routes>
       <MainFooter />
