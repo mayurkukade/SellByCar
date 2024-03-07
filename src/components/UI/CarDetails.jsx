@@ -8,13 +8,6 @@ import Features from '../Img_UI/Features.webp';
 import Tyres from '../Img_UI/Tyres.webp';
 import Engine from '../Img_UI/Engine.webp';
 
-import { CardBody, Divider, Button, Stack, Badge } from '@chakra-ui/react'
-import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { RxHome } from "react-icons/rx";
-import { FaMapMarkerAlt } from 'react-icons/fa';
-import { RxFileText } from "react-icons/rx";
-import { FaWhatsapp } from 'react-icons/fa';
-
 
 import i1 from '../Img_UI/Interior_Img/i1.webp';
 import i2 from '../Img_UI/Interior_Img/i2.webp';
@@ -51,6 +44,10 @@ import en3 from '../Img_UI/Engines_Img/en3.webp';
 
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import KnowYourCar from './KnowYourCar';
+import InspectionReport from './InspectionReport';
+import TopFeatures from './TopFeatures';
+import SecondCard from './SecondCard';
 // import SecondCard from './SecondCard';
 
 const CarDetail1 = () => {
@@ -136,66 +133,6 @@ const CarDetail1 = () => {
     en3,
   ];
 
-  // const renderInteriorImages = () => {
-  //   return interiorImages.map((imageUrl, index) => (
-  //     <Carousel.Item key={index}>
-  //       <img
-  //         className="d-block w-100"
-  //         src={imageUrl}
-  //         alt={`Interior Image ${index + 1}`}
-  //       />
-  //     </Carousel.Item>
-  //   ));
-  // };
-
-  // const renderExteriorImages = () => {
-  //   return exteriorImages.map((imageUrl, index) => (
-  //     <Carousel.Item key={index}>
-  //       <img
-  //         className="d-block w-100"
-  //         src={imageUrl}
-  //         alt={`Exterior Image ${index + 1}`}
-  //       />
-  //     </Carousel.Item>
-  //   ));
-  // };
-
-  // const renderFeaturesImages = () => {
-  //   return featuresImages.map((imageUrl, index) => (
-  //     <Carousel.Item key={index}>
-  //       <img
-  //         className="d-block w-100"
-  //         src={imageUrl}
-  //         alt={`Features Image ${index + 1}`}
-  //       />
-  //     </Carousel.Item>
-  //   ));
-  // };
-
-  // const renderTyresImages = () => {
-  //   return tyresImages.map((imageUrl, index) => (
-  //     <Carousel.Item key={index}>
-  //       <img
-  //         className="d-block w-100"
-  //         src={imageUrl}
-  //         alt={`Tyres Image ${index + 1}`}
-  //       />
-  //     </Carousel.Item>
-  //   ));
-  // };
-
-  // const renderEnginesImages = () => {
-  //   return enginesImages.map((imageUrl, index) => (
-  //     <Carousel.Item key={index}>
-  //       <img
-  //         className="d-block w-100"
-  //         src={imageUrl}
-  //         alt={`Engines Image ${index + 1}`}
-  //       />
-  //     </Carousel.Item>
-  //   ));
-  // };
-
   const renderImagesCarousel = (imagesArray) => {
     return (
       <Carousel>
@@ -217,20 +154,20 @@ const CarDetail1 = () => {
       <Container maxW="container.xl" mt={10}>
         {img360 && (
           <Card maxW='md' mb={5} mx="auto">
-          <Flex justifyContent="center">
-            <Box className="row">
-              <Box className="col-7">
-                <Box className="car">
-                  <Box id="carDefault" width={{ base: '30rem', md: "30rem" }} mx="auto">
-                    <ThreeSixty
-                      amount={8}
-                      imagePath={`./img/images-red/images-red-1/`}
-                      fileName="civic-{index}.jpg"
-                    />
+            <Flex justifyContent="center">
+              <Box className="row">
+                <Box className="col-7">
+                  <Box className="car">
+                    <Box id="carDefault" width={{ base: '30rem', md: "30rem" }} mx="auto">
+                      <ThreeSixty
+                        amount={8}
+                        imagePath={`./img/images-red/images-red-1/`}
+                        fileName="civic-{index}.jpg"
+                      />
+                    </Box>
                   </Box>
                 </Box>
               </Box>
-            </Box>
             </Flex>
           </Card>
         )}
@@ -320,7 +257,7 @@ const CarDetail1 = () => {
   };
 
   return (
-    <Container maxW="container.lg" mt={20}>
+    <Container maxW="container.xl" mt={20}>
       <Flex direction={{ base: "column", md: "row" }} justifyContent="space-between">
         {/* <Flex justifyContent="space-between"> */}
         <Card maxW={{ base: '95%', md: 'lg' }} mx="auto" mb={5}>
@@ -413,73 +350,20 @@ const CarDetail1 = () => {
               <Text alignItems={'center'} fontWeight={'bold'}>ENGINES</Text>
             </Box>
           </Flex>
-
         </Card>
 
         {/* Second Card */}
-        {/* <SecondCard /> */}
-        <Card maxW='md' mb={5} mx="auto">
-          <CardBody>
-            <Box textAlign="center">
-              <Text fontSize={30} fontWeight='bold'>2013 Honda Civics</Text>
-              <Box mt={5}>
-                <Text fontSize={20}>AMBITION 1.6 MPI MTManual</Text>
-              </Box>
-            </Box>
-            <Flex direction={{ base: "column", md: "row" }} gap={{ base: 2, md: 5 }} textAlign={'center'} justifyContent={'center'} >
-              <Badge colorScheme='gray' fontSize={{ base: 'md', md: 'lg' }}>96,953 KM</Badge>
-              <Badge colorScheme='gray' fontSize={{ base: 'md', md: 'lg' }}>2ND OWNER</Badge>
-              <Badge colorScheme='gray' fontSize={{ base: 'md', md: 'lg' }}>PETROL</Badge>
-              <Badge colorScheme='gray' fontSize={{ base: 'md', md: 'lg' }}>MH-04</Badge>
-            </Flex>
-
-            <Flex gap={8} alignItems="center" mt={5} m={2}>
-              <Box>
-                <RxHome />
-              </Box>
-              <Text>Home Test Drive Available</Text>
-            </Flex>
-            <Flex gap={8} alignItems="center" m={2}>
-              <Box>
-                <FaMapMarkerAlt />
-              </Box>
-              <Text>Parked at: Goregaon, Mumbai</Text>
-            </Flex>
-            <Flex gap={8} alignItems="center" m={2}>
-              <Box>
-                <RxFileText />
-              </Box>
-              <Text>View Inspection Report</Text>
-            </Flex>
-            <Flex gap={8} alignItems="center" m={2}>
-              <Box>
-                <FaWhatsapp />
-              </Box>
-              <Text>Get Service History Report</Text>
-            </Flex>
-          </CardBody>
-          <Box>
-            <Divider />
-          </Box>
-          <Flex justifyContent="space-between" m={6} mt={1}>
-            <Text color='orange' fontWeight='bold' fontSize='20'>₹7,979/month</Text>
-            <Text color='black' fontWeight='bold' fontSize='20'>₹3.03 Lakh</Text>
-          </Flex>
-          <Text fontWeight='bold' m={6} mt={1}>On Zero down payment</Text>
-          <Flex justifyContent="space-between" m={5} mt={-5}>
-            <Button rightIcon={<ArrowForwardIcon />} color='blue' variant='unstyled'>
-              CHECK ELIGIBILITY
-            </Button>
-            <Button rightIcon={<ArrowForwardIcon />} color='blue' variant='unstyled'>
-              UNDERSTAND PRICE
-            </Button>
-          </Flex>
-          <Button m={6} mt={-4} variant='solid' colorScheme='orange'>
-            BOOK FREE TEST DRIVE
-          </Button>
-        </Card>
+        <SecondCard />
         {/* Second card End */}
+
       </Flex>
+
+      <KnowYourCar />
+
+      <InspectionReport />
+
+      <TopFeatures />
+
     </Container>
   )
 };
