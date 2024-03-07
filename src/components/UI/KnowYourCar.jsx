@@ -30,7 +30,7 @@ function KnowYourCar() {
                                 display="flex"
                                 alignItems="center"
                             >
-                            <FaMedal />
+                                <FaMedal />
                                 {/* <Image
                                     // src="./src/components/CarDetailsCard/medal.svg"
                                     alt="medal"
@@ -57,7 +57,7 @@ function KnowYourCar() {
                                 display="flex"
                                 alignItems="center"
                             >
-                            <FaMedal />
+                                <FaMedal />
                                 {/* <Image
                                     // src="./src/components/CarDetailsCard/medal.svg"
                                     alt="medal"
@@ -81,7 +81,7 @@ function KnowYourCar() {
                             display="flex"
                             alignItems="center"
                         >
-                        <FaMedal />
+                            <FaMedal />
                             {/* <Image
                                 // src="./src/components/CarDetailsCard/medal.svg"
                                 alt="medal"
@@ -93,20 +93,14 @@ function KnowYourCar() {
                             <Text fontSize="larger" fontWeight="500">
                                 Reagular Serviced
                             </Text>
-                            <Text>Serviced every 10000km at authorised service center</Text>
+                            <Text>Serviced every 10000 KM at authorised service center</Text>
                         </Box>
                     </Stack>
                     <Flex justifyContent="space-between" mt={8}>
                         <Stack direction="column" alignItems="center" spacing={4}>
                             <Box display="flex" gap={1} alignItems="center">
-                            <SlCalender />
-                                {/* <Image
-                                    // src="./src/components/CarDetailsCard/calendar.svg"
-                                    alt=""
-                                    w="30px"
-                                    h="30px"
-                                /> */}
-                                <Text>Reg Year:</Text>
+                                <SlCalender />
+                                <Text mt={3}>Reg Year:</Text>
                             </Box>
                             <Text
                                 fontWeight="600"
@@ -121,14 +115,8 @@ function KnowYourCar() {
                         </Stack>
                         <Stack direction="column" alignItems="center" spacing={4}>
                             <Box display="flex" gap={1} alignItems="center">
-                            <SlCalender />
-                                {/* <Image
-                                    // src="./src/components/CarDetailsCard/calendar.svg"
-                                    alt=""
-                                    w="30px"
-                                    h="30px"
-                                /> */}
-                                <Text>Reg Year:</Text>
+                                <SlCalender />
+                                <Text mt={3}>Reg Year:</Text>
                             </Box>
                             <Text
                                 fontWeight="600"
@@ -143,14 +131,8 @@ function KnowYourCar() {
                         </Stack>
                         <Stack direction="column" alignItems="center" spacing={4}>
                             <Box display="flex" gap={1} alignItems="center">
-                            <SlCalender />
-                                {/* <Image
-                                    // src="./src/components/CarDetailsCard/calendar.svg"
-                                    alt=""
-                                    w="30px"
-                                    h="30px"
-                                /> */}
-                                <Text>Reg Year:</Text>
+                                <SlCalender />
+                                <Text mt={3}>Reg Year:</Text>
                             </Box>
                             <Text
                                 fontWeight="600"
@@ -167,14 +149,8 @@ function KnowYourCar() {
                     <Flex justifyContent="space-between" mt={8}>
                         <Stack direction="column" alignItems="center" spacing={4}>
                             <Box display="flex" gap={1} alignItems="center">
-                            <SlCalender />
-                                {/* <Image
-                                    // src="./src/components/CarDetailsCard/calendar.svg"
-                                    alt=""
-                                    w="30px"
-                                    h="30px"
-                                /> */}
-                                <Text>Reg Year:</Text>
+                                <SlCalender />
+                                <Text mt={3}>Reg Year:</Text>
                             </Box>
                             <Text
                                 fontWeight="600"
@@ -189,14 +165,8 @@ function KnowYourCar() {
                         </Stack>
                         <Stack direction="column" alignItems="center" spacing={4}>
                             <Box display="flex" gap={1} alignItems="center">
-                            <SlCalender />
-                                {/* <Image
-                                    // src="./src/components/CarDetailsCard/calendar.svg"
-                                    alt=""
-                                    w="30px"
-                                    h="30px"
-                                /> */}
-                                <Text>Reg Year:</Text>
+                                <SlCalender />
+                                <Text mt={3}>Reg Year:</Text>
                             </Box>
                             <Text
                                 fontWeight="600"
@@ -211,14 +181,8 @@ function KnowYourCar() {
                         </Stack>
                         <Stack direction="column" alignItems="center" spacing={4}>
                             <Box display="flex" gap={1} alignItems="center">
-                            <SlCalender />
-                                {/* <Image
-                                    // src="./src/components/CarDetailsCard/calendar.svg"
-                                    alt=""
-                                    w="30px"
-                                    h="30px"
-                                /> */}
-                                <Text>Reg Year:</Text>
+                                <SlCalender />
+                                <Text mt={3}>Reg Year:</Text>
                             </Box>
                             <Text
                                 fontWeight="600"
@@ -235,14 +199,8 @@ function KnowYourCar() {
                     <Flex justifyContent="space-between" mt={8}>
                         <Stack direction="column" alignItems="center" spacing={4}>
                             <Box display="flex" gap={1} alignItems="center">
-                            <SlCalender />
-                                {/* <Image
-                                    // src="./src/components/CarDetailsCard/calendar.svg"
-                                    alt=""
-                                    w="30px"
-                                    h="30px"
-                                /> */}
-                                <Text>Reg Year:</Text>
+                                <SlCalender />
+                                <Text mt={3}>Reg Year:</Text>
                             </Box>
                             <Text
                                 fontWeight="600"
@@ -257,14 +215,8 @@ function KnowYourCar() {
                         </Stack>
                         <Stack direction="column" alignItems="center" spacing={4}>
                             <Box display="flex" gap={1} alignItems="center">
-                            <SlCalender />
-                                {/* <Image
-                                    // src="./src/components/CarDetailsCard/calendar.svg"
-                                    alt=""
-                                    w="30px"
-                                    h="30px"
-                                /> */}
-                                <Text>Reg Year:</Text>
+                                <SlCalender />
+                                <Text mt={3}>Reg Year:</Text>
                             </Box>
                             <Text
                                 fontWeight="600"
@@ -279,14 +231,8 @@ function KnowYourCar() {
                         </Stack>
                         <Stack direction="column" alignItems="center" spacing={4}>
                             <Box display="flex" gap={1} alignItems="center">
-                            <SlCalender />
-                                {/* <Image
-                                    // src="./src/components/CarDetailsCard/calendar.svg"
-                                    alt=""
-                                    w="30px"
-                                    h="30px"
-                                /> */}
-                                <Text>Reg Year:</Text>
+                                <SlCalender />
+                                <Text mt={3}>Reg Year:</Text>
                             </Box>
                             <Text
                                 fontWeight="600"
