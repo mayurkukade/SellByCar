@@ -13,7 +13,7 @@ import {
   CardBody,
   // Text,
   CardFooter,
-   Button,
+  Button,
 } from "@chakra-ui/react";
 import {
   Accordion,
@@ -26,20 +26,19 @@ import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
 
 const Home = () => {
-  const token = Cookies.get('cookie')
- 
-  let jwt_Decode
-  let user
-  if(token){
-    console.log(true)
-   jwt_Decode = jwtDecode(token)
-   user = jwt_Decode?.roles[0] 
-  }else{
-    jwt_Decode = 'undefined'
-    user = 'undefined'
+  const token = Cookies.get("cookie");
+
+  let jwt_Decode;
+  let user;
+  if (token) {
+    console.log(true);
+    jwt_Decode = jwtDecode(token);
+    user = jwt_Decode?.roles[0];
+  } else {
+    jwt_Decode = "undefined";
+    user = "undefined";
   }
 
-  
   // const username = localStorage.getItem("userInfo");
 
   const lastScrollTop = useRef(0);
@@ -64,7 +63,6 @@ const Home = () => {
     );
   }, []);
 
-  
   return (
     <div>
       <div
@@ -73,11 +71,10 @@ const Home = () => {
       >
         <div className="container">
           <div className="row ">
-            <div className="col-md-2 col-sm-3 col-xs-12 "  >
+            <div className="col-md-2 col-sm-3 col-xs-12 ">
               <Link className="logo" to="/">
                 <img src="../../../images/logo.png" alt="logo" />
               </Link>
-
 
               <div className="navbar-header">
                 <button
@@ -162,7 +159,6 @@ const Home = () => {
 
                       <li className="postad"></li> */}
                   </ul>
-                  
                 </div>
                 {/* <div className="clearfix"></div> */}
               </div>
@@ -371,8 +367,6 @@ const Home = () => {
         </div>
       </div>
 
-      
-
       {/* <Explore by lifestylr cards> */}
       <div className="section whitebg howitwrap">
         <div className="container">
@@ -458,7 +452,6 @@ const Home = () => {
               justifyContent: "center",
             }}
           >
-            
             <li className="col-md-4 col-sm-4">
               <img
                 onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
@@ -600,7 +593,7 @@ const Home = () => {
                         <AccordionIcon />
                       </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4} style={{ color: '#888' }}>
+                    <AccordionPanel pb={4} style={{ color: "#888" }}>
                       You can schedule a home test drive for this Autocar
                       assured car at any date and time you find convenient using
                       our test drive booking form.Your assigned Autocar
@@ -620,7 +613,7 @@ const Home = () => {
                         <AccordionIcon />
                       </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4} style={{ color: '#888' }}>
+                    <AccordionPanel pb={4} style={{ color: "#888" }}>
                       You can book a car. If you complete the purchase of the
                       vehicle within the holding period, the deposit will be
                       applied towards the purchase otherwise the booking amount
@@ -637,7 +630,7 @@ const Home = () => {
                         <AccordionIcon />
                       </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4} style={{ color: '#888' }}> 
+                    <AccordionPanel pb={4} style={{ color: "#888" }}>
                       Absolutely, buyers can choose to avail financing through
                       Autocar wherein we would get the loan processed through
                       our finance partners. Our established partnerships help us
@@ -649,17 +642,16 @@ const Home = () => {
                   </AccordionItem>
                 </Accordion>
                 <Link to="/contact">
-                <Button
-                  colorScheme="teal"
-                  variant="outline"
-                  size="sm"
-                  w="150px"
-                >
-                  <span style={{ marginRight: "2px", padding: "5px" }}>
-                  VISIT HELP CENTER
-                  </span>
-               
-                </Button>
+                  <Button
+                    colorScheme="teal"
+                    variant="outline"
+                    size="sm"
+                    w="150px"
+                  >
+                    <span style={{ marginRight: "2px", padding: "5px" }}>
+                      VISIT HELP CENTER
+                    </span>
+                  </Button>
                 </Link>
               </div>
             </li>

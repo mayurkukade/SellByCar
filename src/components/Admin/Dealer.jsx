@@ -19,7 +19,7 @@ const Dealer = () => {
   // const [vendorFetchData, setVendorFetchData] = useState([]);
   // const [catchUserId,setCatchUserId] = useState()
 if(isError){
-  navigate('/signin')
+  window.location.reload();
 }
   const [deleteDealer] = useDeleteDealerMutation();
   // const data = React.useMemo(() => vendorFetchData, [vendorFetchData]);
