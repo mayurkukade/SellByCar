@@ -127,8 +127,8 @@ const Navbar = () => {
               </div>
               <div className="clearfix"></div>
             </div>
-            <div className="col-md-10 col-sm-12 col-xs-12">
-              <div className="navbar navbar-default" role="navigation">
+            <div className="col-md-10 col-sm-12 col-xs-12 d-flex justify-content-end ">
+              <div className="navbar navbar navbar-expand-lg" role="navigation">
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
                     {/* <li>
@@ -162,6 +162,74 @@ const Navbar = () => {
       </div>
     )
 
+  }else if(decoded.roles.includes('DEALER')){
+    roleNav = (
+      <div className={`header ${isNavbarVisible ? "visible" : ""}`}>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-2 col-sm-3 col-xs-12">
+              <Link to="/" className="logo">
+                <img src="../../../images/logo.png" alt="logo" />
+              </Link>
+              <div className="navbar-header">
+                <button
+                  type="button"
+                  className="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target=".navbar-collapse"
+                >
+                  <span className="sr-only">Toggle navigation</span>
+                  <span className="icon-bar"></span>{" "}
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                </button>
+              </div>
+              <div className="clearfix"></div>
+            </div>
+            <div className="col-md-10 col-sm-12 col-xs-12 d-flex justify-content-end ">
+              <div className="navbar navbar-expand-lg" role="navigation">
+                <div className="navbar-collapse collapse" id="nav-main">
+                  <ul className="nav navbar-nav">
+                    <li className="dropdown active">
+                      <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                      <Link to="/carlist">Buy Cars</Link>
+                    </li>
+                    {/* <li>
+                      <a href="listing.html">New Cars</a>
+                    </li> */}
+                    <li>
+                      <Link to="/Contact">Contact Us</Link>
+                    </li>
+                    <li className="postad">
+                      <AvtarModal />
+                    </li>
+                    {/* <li className="" style={{ backgroundColor: "white" }}>
+                      {user ? (
+
+                        <AvtarModal />
+
+                      ) : (
+                        <Link to={"/signup"}>Sign Up</Link>
+                      )}
+                    </li> */}
+                    
+                       <li>
+                        {
+                          !token ? <Link to={"/signup"}>Sign Up</Link> :""
+                        }
+                      
+                    </li>
+                  </ul>
+                </div>
+                <div className="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   } else {
     roleNav = (
       <div className={`header ${isNavbarVisible ? "visible" : ""}`}>
@@ -186,8 +254,8 @@ const Navbar = () => {
               </div>
               <div className="clearfix"></div>
             </div>
-            <div className="col-md-10 col-sm-12 col-xs-12">
-              <div className="navbar navbar-default" role="navigation">
+            <div className="col-md-10 col-sm-12 col-xs-12 d-flex justify-content-end ">
+              <div className="navbar navbar-expand-lg" role="navigation">
                 <div className="navbar-collapse collapse" id="nav-main">
                   <ul className="nav navbar-nav">
                     <li className="dropdown active">
@@ -212,6 +280,7 @@ const Navbar = () => {
                         <Link to={"/signup"}>Sign Up</Link>
                       )}
                     </li> */}
+                    
                        <li>
                         {
                           !token ? <Link to={"/signup"}>Sign Up</Link> :""
