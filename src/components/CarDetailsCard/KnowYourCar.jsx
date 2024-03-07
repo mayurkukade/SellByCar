@@ -21,8 +21,8 @@ const KnowYourCar = () => {
       </Text>
       <Card bg={bgColor} borderRadius="30px" position="initial">
         <Box p={7}>
-          <Flex direction="column">
-            <Stack direction="row" alignItems="center" spacing={4}>
+          <Flex direction="row" gap={5}>
+            <Stack direction="row" alignItems="center">
               <Box
                 p={4}
                 mb={5}
@@ -48,7 +48,7 @@ const KnowYourCar = () => {
                 </Text>
               </Box>
             </Stack>
-            <Stack direction="row" alignItems="center" spacing={4}>
+            <Stack direction="row" alignItems="center">
               <Box
                 p={4}
                 mb={5}
@@ -71,29 +71,29 @@ const KnowYourCar = () => {
                 <Text>Drive in style with akkoy wheels</Text>
               </Box>
             </Stack>
-            <Stack direction="row" alignItems="center" spacing={4}>
-              <Box
-                p={4}
-                bg={borderColor}
-                borderRadius="20px"
-                display="flex"
-                alignItems="center"
-              >
-                <Image
-                  src="./src/components/CarDetailsCard/medal.svg"
-                  alt="medal"
-                  w="30px"
-                  h="50px"
-                />
-              </Box>
-              <Box>
-                <Text fontSize="larger" fontWeight="500">
-                  Reagular Serviced
-                </Text>
-                <Text>Serviced every 10000km at authorised service center</Text>
-              </Box>
-            </Stack>
           </Flex>
+          <Stack direction="row" alignItems="center" my={5}>
+            <Box
+              p={4}
+              bg={borderColor}
+              borderRadius="20px"
+              display="flex"
+              alignItems="center"
+            >
+              <Image
+                src="./src/components/CarDetailsCard/medal.svg"
+                alt="medal"
+                w="30px"
+                h="50px"
+              />
+            </Box>
+            <Box>
+              <Text fontSize="larger" fontWeight="500">
+                Reagular Serviced
+              </Text>
+              <Text>Serviced every 10000km at authorised service center</Text>
+            </Box>
+          </Stack>
           <Flex justifyContent="space-between" mt={8}>
             <Stack direction="column" alignItems="center" spacing={4}>
               <Box display="flex" gap={1} alignItems="center">

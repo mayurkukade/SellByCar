@@ -56,7 +56,7 @@ const App = () => {
   // useScrollTop();
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/cardetailsbid" element={<CarDetailsBid />} /> */}
