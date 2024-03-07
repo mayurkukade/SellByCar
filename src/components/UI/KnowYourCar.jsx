@@ -31,12 +31,6 @@ function KnowYourCar() {
                                 alignItems="center"
                             >
                                 <FaMedal />
-                                {/* <Image
-                                    // src="./src/components/CarDetailsCard/medal.svg"
-                                    alt="medal"
-                                    w="30px"
-                                    h="50px"
-                                /> */}
                             </Box>
                             <Box>
                                 <Text fontSize="larger" fontWeight="500">
@@ -58,12 +52,6 @@ function KnowYourCar() {
                                 alignItems="center"
                             >
                                 <FaMedal />
-                                {/* <Image
-                                    // src="./src/components/CarDetailsCard/medal.svg"
-                                    alt="medal"
-                                    w="30px"
-                                    h="50px"
-                                /> */}
                             </Box>
                             <Box>
                                 <Text fontSize="larger" fontWeight="500">
@@ -82,12 +70,6 @@ function KnowYourCar() {
                             alignItems="center"
                         >
                             <FaMedal />
-                            {/* <Image
-                                // src="./src/components/CarDetailsCard/medal.svg"
-                                alt="medal"
-                                w="30px"
-                                h="50px"
-                            /> */}
                         </Box>
                         <Box>
                             <Text fontSize="larger" fontWeight="500">
