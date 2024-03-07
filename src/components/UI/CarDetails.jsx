@@ -1,5 +1,3 @@
-// Carousel Bootstrap CarDetails page
-
 import { useState } from 'react';
 import { Container, Box, Text } from '@chakra-ui/react';
 import ThreeSixty from "react-360-view";
@@ -9,6 +7,13 @@ import Interior from '../Img_UI/Interior.webp';
 import Features from '../Img_UI/Features.webp';
 import Tyres from '../Img_UI/Tyres.webp';
 import Engine from '../Img_UI/Engine.webp';
+
+import { CardBody, Divider, Button, Stack, Badge } from '@chakra-ui/react'
+import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { RxHome } from "react-icons/rx";
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { RxFileText } from "react-icons/rx";
+import { FaWhatsapp } from 'react-icons/fa';
 
 
 import i1 from '../Img_UI/Interior_Img/i1.webp';
@@ -39,9 +44,14 @@ import t4 from '../Img_UI/Tyres_Img/t4.webp';
 import t5 from '../Img_UI/Tyres_Img/t5.webp';
 
 
+import en1 from '../Img_UI/Engines_Img/en1.webp';
+import en2 from '../Img_UI/Engines_Img/en2.webp';
+import en3 from '../Img_UI/Engines_Img/en3.webp';
+
+
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SecondCard from './SecondCard';
+// import SecondCard from './SecondCard';
 
 const CarDetail1 = () => {
   const [carList] = useState([
@@ -80,6 +90,7 @@ const CarDetail1 = () => {
   const [exterior, setExterior] = useState(false);
   const [features, setFeatures] = useState(false);
   const [tyres, setTyres] = useState(false);
+  const [engines, setEngines] = useState(false);
 
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -95,6 +106,7 @@ const CarDetail1 = () => {
     i5,
     i6
   ];
+
   const exteriorImages = [
     e1,
     e2,
@@ -103,11 +115,13 @@ const CarDetail1 = () => {
     e5,
     e6
   ];
+
   const featuresImages = [
     f1,
     f2,
     f3,
   ];
+
   const tyresImages = [
     t1,
     t2,
@@ -116,64 +130,98 @@ const CarDetail1 = () => {
     t5,
   ];
 
-  const renderInteriorImages = () => {
-    return interiorImages.map((imageUrl, index) => (
-      <Carousel.Item key={index}>
-        <img
-          className="d-block w-100"
-          src={imageUrl}
-          alt={`Interior Image ${index + 1}`}
-        />
-      </Carousel.Item>
-    ));
-  };
+  const enginesImages = [
+    en1,
+    en2,
+    en3,
+  ];
 
-  const renderExteriorImages = () => {
-    return exteriorImages.map((imageUrl, index) => (
-      <Carousel.Item key={index}>
-        <img
-          className="d-block w-100"
-          src={imageUrl}
-          alt={`Exterior Image ${index + 1}`}
-        />
-      </Carousel.Item>
-    ));
-  };
+  // const renderInteriorImages = () => {
+  //   return interiorImages.map((imageUrl, index) => (
+  //     <Carousel.Item key={index}>
+  //       <img
+  //         className="d-block w-100"
+  //         src={imageUrl}
+  //         alt={`Interior Image ${index + 1}`}
+  //       />
+  //     </Carousel.Item>
+  //   ));
+  // };
 
-  const renderFeaturesImages = () => {
-    return featuresImages.map((imageUrl, index) => (
-      <Carousel.Item key={index}>
-        <img
-          className="d-block w-100"
-          src={imageUrl}
-          alt={`Features Image ${index + 1}`}
-        />
-      </Carousel.Item>
-    ));
-  };
+  // const renderExteriorImages = () => {
+  //   return exteriorImages.map((imageUrl, index) => (
+  //     <Carousel.Item key={index}>
+  //       <img
+  //         className="d-block w-100"
+  //         src={imageUrl}
+  //         alt={`Exterior Image ${index + 1}`}
+  //       />
+  //     </Carousel.Item>
+  //   ));
+  // };
 
-  const renderTyresImages = () => {
-    return tyresImages.map((imageUrl, index) => (
-      <Carousel.Item key={index}>
-        <img
-          className="d-block w-100"
-          src={imageUrl}
-          alt={`Tyres Image ${index + 1}`}
-        />
-      </Carousel.Item>
-    ));
+  // const renderFeaturesImages = () => {
+  //   return featuresImages.map((imageUrl, index) => (
+  //     <Carousel.Item key={index}>
+  //       <img
+  //         className="d-block w-100"
+  //         src={imageUrl}
+  //         alt={`Features Image ${index + 1}`}
+  //       />
+  //     </Carousel.Item>
+  //   ));
+  // };
+
+  // const renderTyresImages = () => {
+  //   return tyresImages.map((imageUrl, index) => (
+  //     <Carousel.Item key={index}>
+  //       <img
+  //         className="d-block w-100"
+  //         src={imageUrl}
+  //         alt={`Tyres Image ${index + 1}`}
+  //       />
+  //     </Carousel.Item>
+  //   ));
+  // };
+
+  // const renderEnginesImages = () => {
+  //   return enginesImages.map((imageUrl, index) => (
+  //     <Carousel.Item key={index}>
+  //       <img
+  //         className="d-block w-100"
+  //         src={imageUrl}
+  //         alt={`Engines Image ${index + 1}`}
+  //       />
+  //     </Carousel.Item>
+  //   ));
+  // };
+
+  const renderImagesCarousel = (imagesArray) => {
+    return (
+      <Carousel>
+        {imagesArray.map((imageUrl, index) => (
+          <Carousel.Item key={index}>
+            <img
+              className="d-block w-100"
+              src={imageUrl}
+              alt={`Image ${index + 1}`}
+            />
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    );
   };
 
   const ChooseCarColor = () => {
     return (
-      <Container maxW="container.xl" >
+      <Container maxW="container.xl" mt={10}>
         {img360 && (
-          <Card maxW='md' mb={5}>
-            {/* <CardBody> */}
+          <Card maxW='md' mb={5} mx="auto">
+          <Flex justifyContent="center">
             <Box className="row">
               <Box className="col-7">
                 <Box className="car">
-                  <Box id="carDefault" width={510}>
+                  <Box id="carDefault" width={{ base: '30rem', md: "30rem" }} mx="auto">
                     <ThreeSixty
                       amount={8}
                       imagePath={`./img/images-red/images-red-1/`}
@@ -183,9 +231,10 @@ const CarDetail1 = () => {
                 </Box>
               </Box>
             </Box>
-            {/* </CardBody> */}
+            </Flex>
           </Card>
         )}
+
         {interior && (<Container>
           <Card>
             <Carousel>
@@ -201,6 +250,7 @@ const CarDetail1 = () => {
             </Carousel>
           </Card>
         </Container>)}
+
         {exterior && (<Container>
           <Card>
             <Carousel>
@@ -216,6 +266,7 @@ const CarDetail1 = () => {
             </Carousel>
           </Card>
         </Container>)}
+
         {features && (<Container>
           <Card>
             <Carousel>
@@ -231,6 +282,7 @@ const CarDetail1 = () => {
             </Carousel>
           </Card>
         </Container>)}
+
         {tyres && (<Container>
           <Card>
             <Carousel>
@@ -247,92 +299,116 @@ const CarDetail1 = () => {
           </Card>
         </Container>)}
 
+        {engines && (<Container>
+          <Card>
+            <Carousel>
+              {enginesImages.map((imageUrl, index) => (
+                <Carousel.Item key={index}>
+                  <img
+                    className="d-block w-100"
+                    src={imageUrl}
+                    alt={`Engines Image ${index + 1}`}
+                  />
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          </Card>
+        </Container>)}
+
       </Container>
     );
   };
 
   return (
     <Container maxW="container.lg" mt={20}>
-      <Flex justifyContent="space-between">
-        <Card maxW='lg' mb={5}>
+      <Flex direction={{ base: "column", md: "row" }} justifyContent="space-between">
+        {/* <Flex justifyContent="space-between"> */}
+        <Card maxW={{ base: '95%', md: 'lg' }} mx="auto" mb={5}>
           <Box flex="1">
             <ChooseCarColor />
           </Box>
-          <Flex gap={8} mb={10} overflowX="auto" css={{ "&::-webkit-scrollbar": { display: "flex" } }}>
+          <Flex gap={8} m={5} mb={10} overflowX="auto" css={{ "&::-webkit-scrollbar": { display: "flex" } }}>
             <Box
+              mb={8}
               p={2}
               borderRadius="lg"
               backgroundImage={`url(${Engine})`}
               backgroundSize="cover"
               backgroundPosition="center"
               color="white"
-              height={'16'}
+              height={'20'}
               width={'28'}
-              onClick={() => { setImg360(true); setInterior(false); setExterior(false); setFeatures(false); setTyres(false) }}
+              onClick={() => { setImg360(true); setInterior(false); setExterior(false); setFeatures(false); setTyres(false); setEngines(false) }}
             >
               <Text alignItems={'center'} fontWeight={'bold'}>IMAGE360</Text>
             </Box>
             <Box
+              mb={8}
               p={2}
               borderRadius="lg"
               backgroundImage={`url(${Exterior})`}
               backgroundSize="cover"
               backgroundPosition="center"
               color="white"
-              height={'16'}
+              height={'20'}
               width={'28'}
-              onClick={() => { setImg360(false); setInterior(false); setExterior(true); setFeatures(false); setTyres(false) }}
+              onClick={() => { setImg360(false); setInterior(false); setExterior(true); setFeatures(false); setTyres(false); setEngines(false) }}
             >
               <Text alignItems={'center'} fontWeight={'bold'} >EXTERIOR</Text>
             </Box>
             <Box
+              mb={8}
               p={2}
               borderRadius="lg"
               backgroundImage={`url(${Interior})`}
               backgroundSize="cover"
               backgroundPosition="center"
               color="white"
-              height={'16'}
+              height={'20'}
               width={'28'}
-              onClick={() => { setImg360(false); setInterior(true); setExterior(false); setFeatures(false); setTyres(false) }}
+              onClick={() => { setImg360(false); setInterior(true); setExterior(false); setFeatures(false); setTyres(false); setEngines(false) }}
             >
               <Text alignItems={'center'} fontWeight={'bold'} >INTERIOR</Text>
             </Box>
             <Box
+              mb={8}
               p={2}
               borderRadius="lg"
               backgroundImage={`url(${Features})`}
               backgroundSize="cover"
               backgroundPosition="center"
               color="white"
-              height={'16'}
+              height={'20'}
               width={'28'}
-              onClick={() => { setImg360(false); setInterior(false); setExterior(false); setFeatures(true); setTyres(false) }}
+              onClick={() => { setImg360(false); setInterior(false); setExterior(false); setFeatures(true); setTyres(false); setEngines(false) }}
             >
               <Text alignItems={'center'} fontWeight={'bold'}>FEATURES</Text>
             </Box>
             <Box
+              mb={8}
               p={2}
               borderRadius="lg"
               backgroundImage={`url(${Tyres})`}
               backgroundSize="cover"
               backgroundPosition="center"
               color="white"
-              height={'16'}
+              height={'20'}
               width={'28'}
-              onClick={() => { setImg360(false); setInterior(false); setExterior(false); setFeatures(false); setTyres(true) }}
+              onClick={() => { setImg360(false); setInterior(false); setExterior(false); setFeatures(false); setTyres(true); setEngines(false) }}
             >
               <Text alignItems={'center'} fontWeight={'bold'}>TYRES</Text>
             </Box>
             <Box
+              mb={8}
               p={2}
               borderRadius="lg"
               backgroundImage={`url(${Engine})`}
               backgroundSize="cover"
               backgroundPosition="center"
               color="white"
-              height={'16'}
+              height={'20'}
               width={'28'}
+              onClick={() => { setImg360(false); setInterior(false); setExterior(false); setFeatures(false); setTyres(false); setEngines(true) }}
             >
               <Text alignItems={'center'} fontWeight={'bold'}>ENGINES</Text>
             </Box>
@@ -341,7 +417,67 @@ const CarDetail1 = () => {
         </Card>
 
         {/* Second Card */}
-        <SecondCard />
+        {/* <SecondCard /> */}
+        <Card maxW='md' mb={5} mx="auto">
+          <CardBody>
+            <Box textAlign="center">
+              <Text fontSize={30} fontWeight='bold'>2013 Honda Civics</Text>
+              <Box mt={5}>
+                <Text fontSize={20}>AMBITION 1.6 MPI MTManual</Text>
+              </Box>
+            </Box>
+            <Flex direction={{ base: "column", md: "row" }} gap={{ base: 2, md: 5 }} textAlign={'center'} justifyContent={'center'} >
+              <Badge colorScheme='gray' fontSize={{ base: 'md', md: 'lg' }}>96,953 KM</Badge>
+              <Badge colorScheme='gray' fontSize={{ base: 'md', md: 'lg' }}>2ND OWNER</Badge>
+              <Badge colorScheme='gray' fontSize={{ base: 'md', md: 'lg' }}>PETROL</Badge>
+              <Badge colorScheme='gray' fontSize={{ base: 'md', md: 'lg' }}>MH-04</Badge>
+            </Flex>
+
+            <Flex gap={8} alignItems="center" mt={5} m={2}>
+              <Box>
+                <RxHome />
+              </Box>
+              <Text>Home Test Drive Available</Text>
+            </Flex>
+            <Flex gap={8} alignItems="center" m={2}>
+              <Box>
+                <FaMapMarkerAlt />
+              </Box>
+              <Text>Parked at: Goregaon, Mumbai</Text>
+            </Flex>
+            <Flex gap={8} alignItems="center" m={2}>
+              <Box>
+                <RxFileText />
+              </Box>
+              <Text>View Inspection Report</Text>
+            </Flex>
+            <Flex gap={8} alignItems="center" m={2}>
+              <Box>
+                <FaWhatsapp />
+              </Box>
+              <Text>Get Service History Report</Text>
+            </Flex>
+          </CardBody>
+          <Box>
+            <Divider />
+          </Box>
+          <Flex justifyContent="space-between" m={6} mt={1}>
+            <Text color='orange' fontWeight='bold' fontSize='20'>₹7,979/month</Text>
+            <Text color='black' fontWeight='bold' fontSize='20'>₹3.03 Lakh</Text>
+          </Flex>
+          <Text fontWeight='bold' m={6} mt={1}>On Zero down payment</Text>
+          <Flex justifyContent="space-between" m={5} mt={-5}>
+            <Button rightIcon={<ArrowForwardIcon />} color='blue' variant='unstyled'>
+              CHECK ELIGIBILITY
+            </Button>
+            <Button rightIcon={<ArrowForwardIcon />} color='blue' variant='unstyled'>
+              UNDERSTAND PRICE
+            </Button>
+          </Flex>
+          <Button m={6} mt={-4} variant='solid' colorScheme='orange'>
+            BOOK FREE TEST DRIVE
+          </Button>
+        </Card>
         {/* Second card End */}
       </Flex>
     </Container>
