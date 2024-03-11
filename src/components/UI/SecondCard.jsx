@@ -8,9 +8,9 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 function SecondCard() {
   return (
-    <Card maxW='md' mb={5} mx="auto" position=''>
+    <Card maxW='md' mb={5} mx="auto">
           <CardBody>
-            <Box textAlign="center">
+            <Box textAlign="center" >
               <Text fontSize={30} fontWeight='bold'>2013 Honda Civics</Text>
               <Box mt={5}>
                 <Text fontSize={20}>AMBITION 1.6 MPI MTManual</Text>
